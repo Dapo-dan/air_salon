@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:air_salon/app/core/values/colors.dart';
 import 'package:air_salon/app/core/values/strings.dart';
+import 'package:air_salon/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -9,7 +13,8 @@ class SplashScreen extends StatefulWidget {
   SplashScreenState createState() => SplashScreenState();
 }
 
-class SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation animation;
   late Color color;
@@ -19,22 +24,26 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
   void initState() {
     super.initState();
     controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 5));
-    animation =
-        ColorTween(begin: blue, end: deepPink).animate(controller);
+        AnimationController(vsync: this, duration: const Duration(seconds: 6));
+    animation = ColorTween(begin: blue, end: deepPink).animate(controller);
     animation.addListener(() {
       setState(() {
         color = animation.value;
       });
     });
     controller.forward();
+    startTime();
   }
 
-route() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const IntroPage()));
+  startTime() async {
+    var duration = const Duration(seconds: 8);
+    return Timer(duration, route);
   }
-  
+
+  route() {
+    Get.to(() => const SignUp());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

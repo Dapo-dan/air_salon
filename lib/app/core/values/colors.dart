@@ -8,4 +8,4 @@ const darkGrey = Color(0XFF404040);
 const green = Color(0xFF002A22);
 const blue = Color(0xFF190E4F);
 const white = Color(0XFFFFFFFF);
-const black = Color(0xFF000000);
+const black = Color(0xFF404040);

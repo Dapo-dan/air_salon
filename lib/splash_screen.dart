@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:air_salon/app/core/route/route.dart';
 import 'package:air_salon/app/core/values/colors.dart';
 import 'package:air_salon/app/core/values/strings.dart';
 import 'package:air_salon/app/core/values/styles.dart';
-import 'package:air_salon/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -28,8 +28,7 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   route() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const SignUp()));
+    Navigator.of(context).pushNamed(RouteManager.signup);
   }
 
   @override

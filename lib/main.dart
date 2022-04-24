@@ -1,4 +1,4 @@
-import 'package:air_salon/splash_screen.dart';
+import 'package:air_salon/app/core/route/route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      initialRoute: RouteManager.splashscreen,
+      onGenerateRoute: RouteManager.generateroute,
     );
   }
 }
